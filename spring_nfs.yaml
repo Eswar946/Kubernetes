@@ -78,6 +78,14 @@ spec:
              value: devdb
            - name: MANGO_DB_PASSWORD
              value: devdb@123
+           volumeMounts:
+           - name: mongovol
+             mountPath: /data/db
+         volumes:
+         - name: mongovol
+           nfs:
+             server: 172.31.82.175
+             path: /mnt/nfs-share
 ---
 apiVersion: v1
 kind: Service
